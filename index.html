@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alex Rivera · simple portfolio</title>
-  <!-- clean, modern style · no external dependencies -->
+  <title>Bikash Chhetri · crafted portfolio</title>
+  <!-- clean, modern style · no external dependencies · rich interactions -->
   <style>
     * {
       margin: 0;
@@ -21,12 +21,12 @@
     }
 
     .container {
-      max-width: 1040px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 1.5rem 2rem;
     }
 
-    /* header / nav */
+    /* header / nav — refined */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -34,27 +34,36 @@
       flex-wrap: wrap;
       padding: 1.2rem 0 0.8rem 0;
       border-bottom: 2px solid #e4dcd3;
+      background: #faf8f5;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      background-color: rgba(250, 248, 245, 0.85);
     }
 
     .logo a {
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
+      font-size: 1.9rem;
+      font-weight: 620;
+      letter-spacing: -0.02em;
       text-decoration: none;
       color: #2b2b3b;
+      background: #eae3dc;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
-      font-weight: 500;
+      gap: 2.8rem;
+      font-weight: 520;
     }
 
     .nav-links a {
       text-decoration: none;
       color: #3e3e4f;
       font-size: 1.1rem;
-      transition: color 0.2s;
+      transition: 0.25s;
       border-bottom: 2px solid transparent;
       padding-bottom: 4px;
     }
@@ -64,20 +73,20 @@
       border-bottom-color: #c45b4a;
     }
 
-    /* sections general */
     section {
-      padding: 4rem 0 3rem 0;
-      scroll-margin-top: 2rem;
+      padding: 4.5rem 0 3rem 0;
+      scroll-margin-top: 3rem;
     }
 
     h2 {
-      font-size: 2.2rem;
-      font-weight: 600;
+      font-size: 2.4rem;
+      font-weight: 620;
       letter-spacing: -0.02em;
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
       color: #262632;
       border-left: 6px solid #c45b4a;
-      padding-left: 1.2rem;
+      padding-left: 1.3rem;
+      display: inline-block;
     }
 
     /* hero */
@@ -85,158 +94,179 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 3rem;
-      padding: 1rem 0 1rem 0;
+      gap: 3.5rem;
+      padding: 1rem 0 1.5rem;
     }
 
     .hero-text {
-      flex: 1 1 300px;
+      flex: 1 1 320px;
     }
 
     .hero-text .greeting {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       color: #c45b4a;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
+      font-weight: 520;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     .hero-text h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      line-height: 1.2;
+      font-size: 3.6rem;
+      font-weight: 730;
+      line-height: 1.15;
       color: #1e1e2a;
       margin-bottom: 1rem;
     }
 
     .hero-text .bio {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: #4a4a5a;
-      max-width: 500px;
-      margin-bottom: 1.8rem;
+      max-width: 520px;
+      margin-bottom: 2rem;
     }
 
     .btn {
       display: inline-block;
       background: #c45b4a;
       color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
+      padding: 0.85rem 2.4rem;
+      border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
-      transition: background 0.2s, transform 0.1s;
+      transition: 0.2s;
       border: none;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
-      box-shadow: 0 6px 12px rgba(196, 91, 74, 0.2);
+      box-shadow: 0 8px 16px rgba(196, 91, 74, 0.25);
+      letter-spacing: 0.3px;
     }
 
     .btn:hover {
       background: #a84434;
-      transform: scale(1.02);
+      transform: scale(1.02) translateY(-2px);
+      box-shadow: 0 16px 24px rgba(196, 91, 74, 0.3);
     }
 
     .hero-avatar {
-      flex: 0 0 200px;
+      flex: 0 0 220px;
       text-align: center;
     }
 
     .avatar-box {
-      width: 200px;
-      height: 200px;
-      background: linear-gradient(135deg, #d6ccc4, #b9aaa0);
-      border-radius: 50% 40% 50% 40%;
+      width: 220px;
+      height: 220px;
+      background: linear-gradient(145deg, #d6ccc4, #b9aaa0);
+      border-radius: 48% 52% 44% 56% / 58% 46% 54% 42%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 5rem;
-      font-weight: 400;
+      font-size: 5.2rem;
       color: #2e2e3a;
-      box-shadow: 12px 12px 0 #c45b4a80;
-      transition: 0.2s;
+      box-shadow: 16px 16px 0 #c45b4a, -4px -4px 0 #eae3dc;
+      transition: 0.25s;
     }
 
-    /* work gallery */
+    .avatar-box:hover {
+      border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
+      box-shadow: 10px 10px 0 #a84434;
+    }
+
+    /* work gallery — richer */
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2.2rem;
+      margin-top: 1.5rem;
     }
 
     .project-card {
       background: white;
-      border-radius: 28px;
-      padding: 1.8rem 1.5rem;
-      box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
-      transition: all 0.2s ease;
+      border-radius: 32px;
+      padding: 2rem 1.8rem;
+      box-shadow: 0 18px 32px -12px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
       border: 1px solid #f0eae4;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 36px -12px rgba(0,0,0,0.15);
-      border-color: #c45b4a30;
+      transform: translateY(-10px);
+      box-shadow: 0 28px 44px -14px #c45b4a50;
+      border-color: #c45b4a60;
     }
 
     .project-icon {
-      font-size: 2.8rem;
-      margin-bottom: 0.75rem;
+      font-size: 3.2rem;
+      margin-bottom: 0.9rem;
     }
 
     .project-card h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
+      font-size: 1.9rem;
+      font-weight: 620;
+      margin-bottom: 0.3rem;
     }
 
     .project-tag {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
       color: #c45b4a;
-      font-weight: 600;
+      font-weight: 640;
       margin-bottom: 1rem;
     }
 
     .project-desc {
       color: #3b3b4a;
+      line-height: 1.5;
     }
 
-    /* skills chips */
+    /* skills chips — interactive & fun */
     .skills-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 1.2rem;
-      margin: 1.5rem 0 0.5rem;
+      gap: 0.9rem 1.3rem;
+      margin: 2rem 0 0.8rem;
+      background: #ffffff90;
+      padding: 2rem 2rem;
+      border-radius: 64px;
+      box-shadow: inset 0 2px 10px #e4dcd3;
     }
 
     .skill-chip {
       background: #eae3dc;
-      padding: 0.5rem 1.4rem;
-      border-radius: 40px;
-      font-size: 1rem;
-      font-weight: 500;
+      padding: 0.65rem 1.6rem;
+      border-radius: 60px;
+      font-size: 1.1rem;
+      font-weight: 520;
       color: #2c2c3a;
-      transition: 0.1s;
-      border: 1px solid transparent;
+      transition: 0.2s;
+      border: 1px solid #d0c4b8;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 4px 8px #00000010;
     }
 
-    .skill-chip:hover {
+    .skill-chip.toggled {
       background: #c45b4a;
       color: white;
       border-color: #c45b4a;
-      cursor: default;
+      transform: scale(1.02);
+      box-shadow: 0 6px 12px #c45b4a70;
     }
 
-    /* about + testimonial hybrid */
+    /* about + testimonial */
     .about-wrap {
       display: flex;
       flex-wrap: wrap;
       gap: 2.5rem;
-      background: #ffffffc0;
-      padding: 2rem 2rem;
-      border-radius: 48px;
-      box-shadow: 0 12px 28px -12px #c45b4a30;
+      background: #ffffffd0;
+      padding: 2.5rem 2.5rem;
+      border-radius: 56px;
+      box-shadow: 0 20px 30px -12px #c45b4a40;
+      backdrop-filter: blur(2px);
     }
 
     .about-text {
@@ -244,33 +274,35 @@
     }
 
     .about-text p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.25rem;
+      margin-bottom: 1.4rem;
     }
 
     .fun-fact {
       background: #efeae5;
-      padding: 1.5rem 2rem;
-      border-radius: 3rem;
-      flex: 1 1 220px;
+      padding: 1.8rem 2rem;
+      border-radius: 3.5rem;
+      flex: 1 1 240px;
       align-self: center;
       font-style: italic;
       border-left: 6px solid #c45b4a;
+      font-size: 1.2rem;
+      box-shadow: 0 12px 18px -12px #26263250;
     }
 
     .fun-fact span {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       display: block;
       margin-bottom: 0.5rem;
     }
 
-    /* contact & social */
+    /* contact — vibrant */
     .contact-block {
       background: #262632;
       color: #f0ebe7;
-      border-radius: 60px 60px 40px 40px;
-      padding: 2.8rem 2.5rem;
-      margin-top: 1rem;
+      border-radius: 70px 70px 50px 50px;
+      padding: 3.2rem 3rem;
+      margin-top: 1.5rem;
     }
 
     .contact-flex {
@@ -282,71 +314,91 @@
     }
 
     .contact-flex h3 {
-      font-size: 2rem;
-      font-weight: 500;
+      font-size: 2.3rem;
+      font-weight: 520;
       color: #fae1d5;
     }
 
     .contact-email {
       font-size: 1.5rem;
-      font-weight: 500;
+      font-weight: 520;
       word-break: break-all;
       background: #c45b4a;
-      padding: 0.5rem 1.5rem;
-      border-radius: 100px;
+      padding: 0.7rem 1.8rem;
+      border-radius: 120px;
       color: white;
+      cursor: pointer;
+      transition: 0.15s;
+      border: 2px solid transparent;
+    }
+
+    .contact-email:hover {
+      background: #b84a39;
+      border-color: #f0d9cf;
+      transform: scale(1.02);
     }
 
     .social-links {
       display: flex;
-      gap: 2rem;
-      margin-top: 2rem;
+      gap: 2.8rem;
+      margin: 2.5rem 0 1rem;
     }
 
     .social-link {
       color: #f0d9cf;
       text-decoration: none;
-      font-size: 1.2rem;
-      border-bottom: 2px dotted transparent;
-      transition: 0.15s;
+      font-size: 1.3rem;
+      border-bottom: 3px dotted transparent;
+      transition: 0.2s;
+      font-weight: 500;
     }
 
     .social-link:hover {
       border-bottom-color: #c45b4a;
       color: white;
+      transform: translateY(-3px);
     }
 
-    /* footer */
     footer {
       text-align: center;
-      padding: 2rem 0 2.5rem;
+      padding: 2.5rem 0 2rem;
       color: #6f6f7e;
       border-top: 2px solid #e4dcd3;
       margin-top: 2rem;
     }
 
-    /* interactive JS demo */
+    /* interactive message panel */
     #clickMessage {
       margin-top: 2rem;
       background: #fff6f2;
-      border-radius: 60px;
-      padding: 0.8rem 1.8rem;
+      border-radius: 100px;
+      padding: 0.8rem 2rem;
       display: inline-block;
-      font-weight: 500;
-      transition: 0.2s;
-      border: 1px solid #c45b4a40;
+      font-weight: 520;
+      transition: 0.3s;
+      border: 1px solid #c45b4a50;
+      box-shadow: 0 3px 10px #c45b4a20;
+      font-size: 1.1rem;
     }
 
-    .highlight {
-      background: #c45b4a;
+    .highlight-message {
+      background: #c45b4a !important;
       color: white !important;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
+      border-color: #fff !important;
+    }
+
+    #visitorMessage {
+      background: #3b3b4f;
+      padding: 0.8rem 1.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      transition: 0.2s;
     }
 
     .small-note {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       opacity: 0.8;
+      font-style: italic;
     }
 
     /* responsive */
@@ -356,21 +408,25 @@
         gap: 0.8rem;
       }
       .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.7rem;
       }
       .avatar-box {
-        width: 160px;
-        height: 160px;
-        font-size: 4rem;
+        width: 170px;
+        height: 170px;
+        font-size: 4.2rem;
+      }
+      .contact-email {
+        font-size: 1.1rem;
+        word-break: break-word;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- navigation -->
+    <!-- navigation with refined sticky -->
     <nav class="navbar">
-      <div class="logo"><a href="#">Alex Rivera</a></div>
+      <div class="logo"><a href="#">Bikash Chhetri</a></div>
       <div class="nav-links">
         <a href="#work">work</a>
         <a href="#skills">skills</a>
@@ -379,26 +435,34 @@
       </div>
     </nav>
 
-    <!-- hero / intro -->
+    <!-- hero / intro (enhanced greeting) -->
     <section id="home">
       <div class="hero">
         <div class="hero-text">
+
+          <span class="greeting">👋 hey there, I'm</span>
+          <h1>Bikash Chhetri<br><span style="font-size: 1.9rem; color: #c45b4a; font-weight:400;">design · code · play</span></h1>
+          <p class="bio">Crafting simple, human-friendly digital experiences. Based in Austin, working worldwide.</p>
+          <a href="#work" class="btn">see the work ↓</a>
+          <!-- interactive bubble -->
+
           <span class="greeting">👋 hey, I'm</span>
           <h1>Bikash Chhetri<br><span style="font-size: 1.6rem; color: #c45b4a;">design + code</span></h1>
           <p class="bio">Building simple, human-friendly digital experiences. Based in Austin, remote everywhere.</p>
           <a href="#work" class="btn">see work ↓</a>
           <!-- simple js trigger -->
+
           <div id="clickMessage">
-            💬 click <span style="text-decoration:underline; cursor:pointer;" id="helloTrigger">here</span> to say hello
+            💬 click <strong style="text-decoration:underline; cursor:pointer;" id="helloTrigger">here</strong> to send a virtual high-five
           </div>
         </div>
         <div class="hero-avatar">
-          <div class="avatar-box" aria-label="abstract avatar">✨</div>
+          <div class="avatar-box" aria-label="abstract avatar">🪄✨</div>
         </div>
       </div>
     </section>
 
-    <!-- work / projects (simple cards) -->
+    <!-- work / projects with richer cards -->
     <section id="work">
       <h2>selected projects</h2>
       <div class="work-grid">
@@ -406,162 +470,192 @@
           <div class="project-icon">🌿</div>
           <h3>eden</h3>
           <div class="project-tag">UX / UI</div>
-          <p class="project-desc">Mindfulness app with adaptive color themes — used by 2k+ daily.</p>
+          <p class="project-desc">Mindfulness app with adaptive color themes — used by 2k+ daily. Featured in 'minimalist choice'.</p>
         </article>
         <article class="project-card">
           <div class="project-icon">⚡</div>
           <h3>volta</h3>
           <div class="project-tag">DEV / API</div>
-          <p class="project-desc">Open‑source dashboard for energy monitoring. Lightweight & fast.</p>
+          <p class="project-desc">Open‑source dashboard for energy monitoring. Lightweight, real‑time, MIT.</p>
         </article>
         <article class="project-card">
           <div class="project-icon">🪴</div>
           <h3>terrascope</h3>
           <div class="project-tag">interaction</div>
-          <p class="project-desc">Generative map explorer – finalist at 2024 creative code jam.</p>
+          <p class="project-desc">Generative map explorer – finalist at 2024 creative code jam. Built with p5.js.</p>
         </article>
       </div>
     </section>
 
-    <!-- skills + interactive chip highlight (JS) -->
+    <!-- skills + interactive toggles (advanced) -->
     <section id="skills">
       <h2>craft & tools</h2>
       <div class="skills-container" id="skillList">
         <span class="skill-chip">html / css</span>
-        <span class="skill-chip">javascript</span>
+        <span class="skill-chip">javascript (es6)</span>
         <span class="skill-chip">react</span>
         <span class="skill-chip">figma</span>
         <span class="skill-chip">python</span>
         <span class="skill-chip">illustrator</span>
         <span class="skill-chip">three.js</span>
         <span class="skill-chip">node</span>
+        <span class="skill-chip">tailwind</span>
       </div>
-      <p class="small-note" style="margin-top:1rem;">✨ click any skill to toggle highlight (just for fun)</p>
+      <p class="small-note" style="margin-top:1rem;">✦ click any chip to toggle highlight — play around</p>
     </section>
 
-    <!-- about + mini fun fact (simple) -->
+    <!-- about + fun fact (refined) -->
     <section id="about">
       <h2>about me</h2>
       <div class="about-wrap">
         <div class="about-text">
-          <p>I’m Alex — designer & front-end enthusiast. I love muted colors, good typography, and making things that feel alive. Over the last 6 years I've worked with small teams, studios, and direct clients.</p>
-          <p>When I’m not clicking around Figma or debugging, I brew espresso, read sci‑fi, and walk my dog Olive. 🐕</p>
+          <p>I’m Bikash — designer & front-end enthusiast. I love muted colors, good typography, and making things that feel alive. Over the last 6 years I've worked with small teams, studios, and direct clients. </p>
+          <p>When I’m not clicking around Figma or debugging, I brew espresso, read sci‑fi, and walk my dog Olive. 🐕 Olive is basically a design critic.</p>
         </div>
         <div class="fun-fact">
           <span>📯</span> 
-          “olive knows at least 12 tricks — but ‘fetch’ is still optional.”
+          “olive knows at least 12 tricks — but ‘fetch’ is still optional. she prefers sit & stay.”
         </div>
       </div>
     </section>
 
-    <!-- contact area with demo js update -->
+    <!-- contact area with playful JS -->
     <section id="contact">
       <div class="contact-block">
         <div class="contact-flex">
           <h3>let's connect ✦</h3>
-          <span class="contact-email" id="emailDisplay">alex.r@folio</span>
+          <span class="contact-email" id="emailDisplay">bikash.chhetri20790328@gmail.com</span>
         </div>
         <div class="social-links">
           <a href="#" class="social-link" id="ghLink">github</a>
           <a href="#" class="social-link" id="twLink">twitter</a>
           <a href="#" class="social-link" id="liLink">linkedin</a>
+          <a href="#" class="social-link" id="igLink">instagram</a>
         </div>
-        <p style="margin-top: 2rem; color: #ccbcb0;" id="visitorMessage">click an icon or email to change this line ⏎</p>
+        <p style="margin-top: 2rem; color: #fadcd0; font-size: 1.2rem;" id="visitorMessage">⏎ click an icon or email — i’ll update this line ✨</p>
       </div>
     </section>
 
     <footer>
-      <p>© 2025 Alex Rivera – simple protofilo · built with html/css/js</p>
+      <p>© 2025 Bikash Chhetri – crafted portfolio · css/html/js · all interactions local</p>
     </footer>
   </div>
 
-  <!-- simple vanilla JS interactions -->
+  <!-- enhanced vanilla JS interactions -->
   <script>
     (function() {
-      // 1. greet trigger – changes message + highlights
+      // 1. high‑five trigger – changes message + toggles highlight class
       const helloTrigger = document.getElementById('helloTrigger');
       const msgBox = document.getElementById('clickMessage');
       if (helloTrigger) {
         helloTrigger.addEventListener('click', function(e) {
           e.preventDefault();
-          msgBox.innerHTML = '🙌 right back at you, friend!  (feel free to click again)';
-          msgBox.classList.add('highlight');
-          // reset after a few sec
+          msgBox.innerHTML = '🙌 high‑five returned! you’re awesome (click again)';
+          msgBox.classList.add('highlight-message');
           setTimeout(() => {
-            msgBox.classList.remove('highlight');
-          }, 600);
+            msgBox.classList.remove('highlight-message');
+          }, 800);
         });
       }
 
-      // 2. skill chips toggler (background highlight)
+      // 2. skill chips: toggle .toggled class (cleaner)
       const chips = document.querySelectorAll('.skill-chip');
       chips.forEach(chip => {
         chip.addEventListener('click', function() {
-          // simple toggle of a background style
-          if (this.style.backgroundColor === 'rgb(196, 91, 74)') { 
-            // already highlighted? revert to original
-            this.style.backgroundColor = '';
-            this.style.color = '';
-            this.style.borderColor = '';
-          } else {
-            this.style.backgroundColor = '#c45b4a';
-            this.style.color = 'white';
-            this.style.borderColor = '#c45b4a';
-          }
+          this.classList.toggle('toggled');
+          // optional: play with inner text? no, keep simple.
         });
       });
 
-      // 3. contact section interactive elements (email, social, visitorMessage)
+      // 3. contact section interactive elements — email + socials update visitorMessage
       const emailSpan = document.getElementById('emailDisplay');
       const visitorMsg = document.getElementById('visitorMessage');
       const gh = document.getElementById('ghLink');
       const tw = document.getElementById('twLink');
       const li = document.getElementById('liLink');
+      const ig = document.getElementById('igLink');  // extra
 
       function updateVisitor(text, emoji = '✨') {
         if (visitorMsg) {
-          visitorMsg.textContent = `${emoji} ${text}  (updated)`;
+          visitorMsg.innerHTML = `${emoji} ${text}  (updated)`;
+          // animate background quickly
+          visitorMsg.style.transition = '0.2s';
+          visitorMsg.style.backgroundColor = '#c45b4a';
+          visitorMsg.style.color = 'white';
+          setTimeout(() => {
+            visitorMsg.style.backgroundColor = '';
+            visitorMsg.style.color = '';
+          }, 400);
         }
       }
 
       if (emailSpan) {
         emailSpan.addEventListener('click', () => {
           updateVisitor('📬 email copied to clipboard (demo)', '📧');
-          // simulate copy
-          navigator.clipboard?.writeText('alex.r@portfolio.demo').catch(()=>{});
+          // simulate copy (clipboard API)
+          navigator.clipboard?.writeText('bikash.chhetri20790328@gmail.com').catch(() => {});
         });
       }
 
+      // social links: each shows a different message
       if (gh) {
         gh.addEventListener('click', (e) => {
           e.preventDefault();
-          updateVisitor('github – /alexrivera (demo)', '🐙');
+          updateVisitor('github: @bikashcodes (demo)', '🐙');
         });
       }
 
       if (tw) {
         tw.addEventListener('click', (e) => {
           e.preventDefault();
-          updateVisitor('twitter: @alexmakes (demo)', '🐦');
+          updateVisitor('twitter / x: @bikash_design', '🐦');
         });
       }
 
       if (li) {
         li.addEventListener('click', (e) => {
           e.preventDefault();
-          updateVisitor('linkedin: alex-rivera-design (demo)', '🔗');
+          updateVisitor('linkedin: /in/bikashchhetri', '🔗');
         });
       }
 
-      // 4. extra tiny: show current year in footer (optional)
-      const yearSpan = document.querySelector('footer p');
-      if (yearSpan) {
-        const currentYear = new Date().getFullYear();
-        yearSpan.innerHTML = yearSpan.innerHTML.replace('2025', currentYear);
+      if (ig) {
+        ig.addEventListener('click', (e) => {
+          e.preventDefault();
+          updateVisitor('instagram: @bikash.studio', '📸');
+        });
       }
 
-      // 5. simple greeting from home button (see work doesn't need, but we add message to console)
-      console.log('simple protofilo loaded · nice to meet you!');
+      // 4. footer year update automatically
+      const footerPara = document.querySelector('footer p');
+      if (footerPara) {
+        const currentYear = new Date().getFullYear();
+        footerPara.innerHTML = footerPara.innerHTML.replace('2025', currentYear);
+      }
+
+      // 5. extra: dynamic greeting in console + quick hover effect on projects (no extra)
+      console.log('✨ Bikash portfolio — everything is interactive, have fun!');
+
+      // 6. optional: let the avatar wink on click?
+      const avatar = document.querySelector('.avatar-box');
+      if (avatar) {
+        avatar.addEventListener('click', () => {
+          avatar.style.transform = 'rotate(2deg) scale(0.98)';
+          avatar.innerText = '🌀';
+          setTimeout(() => {
+            avatar.style.transform = '';
+            avatar.innerText = '🪄✨';
+          }, 300);
+        });
+      }
+
+      // 7. on hero btn, smooth scroll — already by href, but we add a tiny ping
+      document.querySelector('.btn')?.addEventListener('click', (e) => {
+        // do nothing extra, but we can ping console
+        console.log('navigating to work section');
+      });
+
+      // 8. for any nav link, we may add active class but keep minimal
     })();
   </script>
 </body>
