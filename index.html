@@ -1,662 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bikash Chhetri · crafted portfolio</title>
-  <!-- clean, modern style · no external dependencies · rich interactions -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #faf8f5;
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      color: #1e1e2a;
-      line-height: 1.5;
-      scroll-behavior: smooth;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.5rem 2rem;
-    }
-
-    /* header / nav — refined */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1.2rem 0 0.8rem 0;
-      border-bottom: 2px solid #e4dcd3;
-      background: #faf8f5;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(6px);
-      background-color: rgba(250, 248, 245, 0.85);
-    }
-
-    .logo a {
-      font-size: 1.9rem;
-      font-weight: 620;
-      letter-spacing: -0.02em;
-      text-decoration: none;
-      color: #2b2b3b;
-      background: #eae3dc;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.8rem;
-      font-weight: 520;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #3e3e4f;
-      font-size: 1.1rem;
-      transition: 0.25s;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 4px;
-    }
-
-    .nav-links a:hover {
-      color: #c45b4a;
-      border-bottom-color: #c45b4a;
-    }
-
-    section {
-      padding: 4.5rem 0 3rem 0;
-      scroll-margin-top: 3rem;
-    }
-
-    h2 {
-      font-size: 2.4rem;
-      font-weight: 620;
-      letter-spacing: -0.02em;
-      margin-bottom: 2.2rem;
-      color: #262632;
-      border-left: 6px solid #c45b4a;
-      padding-left: 1.3rem;
-      display: inline-block;
-    }
-
-    /* hero */
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 3.5rem;
-      padding: 1rem 0 1.5rem;
-    }
-
-    .hero-text {
-      flex: 1 1 320px;
-    }
-
-    .hero-text .greeting {
-      font-size: 1.4rem;
-      color: #c45b4a;
-      font-weight: 520;
-      margin-bottom: 0.4rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .hero-text h1 {
-      font-size: 3.6rem;
-      font-weight: 730;
-      line-height: 1.15;
-      color: #1e1e2a;
-      margin-bottom: 1rem;
-    }
-
-    .hero-text .bio {
-      font-size: 1.25rem;
-      color: #4a4a5a;
-      max-width: 520px;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #c45b4a;
-      color: white;
-      padding: 0.85rem 2.4rem;
-      border-radius: 50px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.2s;
-      border: none;
-      font-size: 1.1rem;
-      cursor: pointer;
-      box-shadow: 0 8px 16px rgba(196, 91, 74, 0.25);
-      letter-spacing: 0.3px;
-    }
-
-    .btn:hover {
-      background: #a84434;
-      transform: scale(1.02) translateY(-2px);
-      box-shadow: 0 16px 24px rgba(196, 91, 74, 0.3);
-    }
-
-    .hero-avatar {
-      flex: 0 0 220px;
-      text-align: center;
-    }
-
-    .avatar-box {
-      width: 220px;
-      height: 220px;
-      background: linear-gradient(145deg, #d6ccc4, #b9aaa0);
-      border-radius: 48% 52% 44% 56% / 58% 46% 54% 42%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 5.2rem;
-      color: #2e2e3a;
-      box-shadow: 16px 16px 0 #c45b4a, -4px -4px 0 #eae3dc;
-      transition: 0.25s;
-    }
-
-    .avatar-box:hover {
-      border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
-      box-shadow: 10px 10px 0 #a84434;
-    }
-
-    /* work gallery — richer */
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 2.2rem;
-      margin-top: 1.5rem;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 32px;
-      padding: 2rem 1.8rem;
-      box-shadow: 0 18px 32px -12px rgba(0,0,0,0.08);
-      transition: all 0.25s ease;
-      border: 1px solid #f0eae4;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 28px 44px -14px #c45b4a50;
-      border-color: #c45b4a60;
-    }
-
-    .project-icon {
-      font-size: 3.2rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .project-card h3 {
-      font-size: 1.9rem;
-      font-weight: 620;
-      margin-bottom: 0.3rem;
-    }
-
-    .project-tag {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #c45b4a;
-      font-weight: 640;
-      margin-bottom: 1rem;
-    }
-
-    .project-desc {
-      color: #3b3b4a;
-      line-height: 1.5;
-    }
-
-    /* skills chips — interactive & fun */
-    .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem 1.3rem;
-      margin: 2rem 0 0.8rem;
-      background: #ffffff90;
-      padding: 2rem 2rem;
-      border-radius: 64px;
-      box-shadow: inset 0 2px 10px #e4dcd3;
-    }
-
-    .skill-chip {
-      background: #eae3dc;
-      padding: 0.65rem 1.6rem;
-      border-radius: 60px;
-      font-size: 1.1rem;
-      font-weight: 520;
-      color: #2c2c3a;
-      transition: 0.2s;
-      border: 1px solid #d0c4b8;
-      cursor: pointer;
-      user-select: none;
-      box-shadow: 0 4px 8px #00000010;
-    }
-
-    .skill-chip.toggled {
-      background: #c45b4a;
-      color: white;
-      border-color: #c45b4a;
-      transform: scale(1.02);
-      box-shadow: 0 6px 12px #c45b4a70;
-    }
-
-    /* about + testimonial */
-    .about-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      background: #ffffffd0;
-      padding: 2.5rem 2.5rem;
-      border-radius: 56px;
-      box-shadow: 0 20px 30px -12px #c45b4a40;
-      backdrop-filter: blur(2px);
-    }
-
-    .about-text {
-      flex: 2 1 300px;
-    }
-
-    .about-text p {
-      font-size: 1.25rem;
-      margin-bottom: 1.4rem;
-    }
-
-    .fun-fact {
-      background: #efeae5;
-      padding: 1.8rem 2rem;
-      border-radius: 3.5rem;
-      flex: 1 1 240px;
-      align-self: center;
-      font-style: italic;
-      border-left: 6px solid #c45b4a;
-      font-size: 1.2rem;
-      box-shadow: 0 12px 18px -12px #26263250;
-    }
-
-    .fun-fact span {
-      font-size: 2.8rem;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-
-    /* contact — vibrant */
-    .contact-block {
-      background: #262632;
-      color: #f0ebe7;
-      border-radius: 70px 70px 50px 50px;
-      padding: 3.2rem 3rem;
-      margin-top: 1.5rem;
-    }
-
-    .contact-flex {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .contact-flex h3 {
-      font-size: 2.3rem;
-      font-weight: 520;
-      color: #fae1d5;
-    }
-
-    .contact-email {
-      font-size: 1.5rem;
-      font-weight: 520;
-      word-break: break-all;
-      background: #c45b4a;
-      padding: 0.7rem 1.8rem;
-      border-radius: 120px;
-      color: white;
-      cursor: pointer;
-      transition: 0.15s;
-      border: 2px solid transparent;
-    }
-
-    .contact-email:hover {
-      background: #b84a39;
-      border-color: #f0d9cf;
-      transform: scale(1.02);
-    }
-
-    .social-links {
-      display: flex;
-      gap: 2.8rem;
-      margin: 2.5rem 0 1rem;
-    }
-
-    .social-link {
-      color: #f0d9cf;
-      text-decoration: none;
-      font-size: 1.3rem;
-      border-bottom: 3px dotted transparent;
-      transition: 0.2s;
-      font-weight: 500;
-    }
-
-    .social-link:hover {
-      border-bottom-color: #c45b4a;
-      color: white;
-      transform: translateY(-3px);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2.5rem 0 2rem;
-      color: #6f6f7e;
-      border-top: 2px solid #e4dcd3;
-      margin-top: 2rem;
-    }
-
-    /* interactive message panel */
-    #clickMessage {
-      margin-top: 2rem;
-      background: #fff6f2;
-      border-radius: 100px;
-      padding: 0.8rem 2rem;
-      display: inline-block;
-      font-weight: 520;
-      transition: 0.3s;
-      border: 1px solid #c45b4a50;
-      box-shadow: 0 3px 10px #c45b4a20;
-      font-size: 1.1rem;
-    }
-
-    .highlight-message {
-      background: #c45b4a !important;
-      color: white !important;
-      border-color: #fff !important;
-    }
-
-    #visitorMessage {
-      background: #3b3b4f;
-      padding: 0.8rem 1.8rem;
-      border-radius: 60px;
-      display: inline-block;
-      transition: 0.2s;
-    }
-
-    .small-note {
-      font-size: 0.95rem;
-      opacity: 0.8;
-      font-style: italic;
-    }
-
-    /* responsive */
-    @media (max-width: 600px) {
-      .navbar {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      .hero-text h1 {
-        font-size: 2.7rem;
-      }
-      .avatar-box {
-        width: 170px;
-        height: 170px;
-        font-size: 4.2rem;
-      }
-      .contact-email {
-        font-size: 1.1rem;
-        word-break: break-word;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Bikash Chhetri, portfolio, Bikash, BikashChhetri, personal portfolio Bikash Chhetri, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Bikash's Portfolio. Full-Stack Web Developer and Android App Developer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/favicons.png" type="image/x-png">
+    <title>Portfolio | Bikash Chhetri</title>
 </head>
-<body>
-  <div class="container">
-    <!-- navigation with refined sticky -->
-    <nav class="navbar">
-      <div class="logo"><a href="#">Bikash Chhetri</a></div>
-      <div class="nav-links">
-        <a href="#work">work</a>
-        <a href="#skills">skills</a>
-        <a href="#about">about</a>
-        <a href="#contact">contact</a>
+<body oncontextmenu="return false">
+
+<!-- pre loader -->
+<!-- <div class="loader-container">
+  <img draggable="false" src="./assets/images/preloader.gif" alt="">
+</div> -->
+
+<!-- navbar starts -->
+<header>
+        <a href="/" class="logo"><i class=""></i>Bikash Chhetri</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+</header>
+<!-- navbar ends -->
+
+
+<!-- hero section starts -->
+<section class="home" id="home">
+    <div id="particles-js"></div>
+
+    <div class="content">
+    <h2>Hi There,<br/> I'm Bikash <span>Chhetri</span></h2>
+    <p>i am into <span class="typing-text"></span></p>
+    <a href="#about" class="btn"><span>About Me</span>
+      <i class="fas fa-arrow-circle-down"></i>
+    </a>
+    <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/bikashchhetri2020/" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" aria-label="GitHub" href="https://github.com/Bikash20018" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="twitter" aria-label="Twitter" href="https://x.com/BChhetri23304" target="_blank"><i class="fab fa-twitter"></i></a></li>
+          <li><a class="telegram" aria-label="Telegram" href="https://t.me/BikashChhetri" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/im_bi_03_04?igsh=MTZzcmg3MXhuejRkNA%3D%3D&utm_source=qr"><i class="fab fa-instagram" target="_blank"></i></a></li>
+          <li><a class="dev" aria-label="Dev" href="https://dev.to/bikash_chhetri_dff8bd4b38" target="_blank"><i class="fab fa-dev"></i></a></li>
+        </ul>
       </div>
-    </nav>
+    </div>
+<div class="image">
+    <img draggable="false" class="tilt" src="./assets/images/heros.png" alt="">
+</div>
+</section>
+<!-- hero section ends -->
 
-    <!-- hero / intro (enhanced greeting) -->
-    <section id="home">
-      <div class="hero">
-        <div class="hero-text">
 
-          <span class="greeting">👋 hey there, I'm</span>
-          <h1>Bikash Chhetri<br><span style="font-size: 1.9rem; color: #c45b4a; font-weight:400;">design · code · play</span></h1>
-          <p class="bio">Crafting simple, human-friendly digital experiences. Based in Austin, working worldwide.</p>
-          <a href="#work" class="btn">see the work ↓</a>
-          <!-- interactive bubble -->
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+    
+    <div class="row">
 
-          <span class="greeting">👋 hey, I'm</span>
-          <h1>Bikash Chhetri<br><span style="font-size: 1.6rem; color: #c45b4a;">design + code</span></h1>
-          <p class="bio">Building simple, human-friendly digital experiences. Based in Austin, remote everywhere.</p>
-          <a href="#work" class="btn">see work ↓</a>
-          <!-- simple js trigger -->
+    <div class="image">
+        <img draggable="false" class="tilt" src="./assets/images/profile3.JPG" alt="">
+    </div>
+    <div class="content">
+        <h3>I'm Bikash</h3>
+        <span class="tag">Full Stack Developer</span>
+        
+        <p>I am a Full-Stack developer based in Kanchan-04, Rudrapur, Rupandehi. 
+          I am an Computer science and Engineering from ABBS.
+          I am very passionate about improving my coding skills & developing applications & websites.
+          I build WebApps and Websites using MERN Stack.
+          Working for myself to improve my skills.
+          Love to build Full-Stack clones. </p>
+        
+        <div class="box-container">
+            <!-- <div class="box">
+              <p><span> age: </span> 20</p>
+              <p><span> phone : </span> +977 9847088027</p>
+            </div> -->
+            <div class="box">
+              <p><span> email : </span> bikash.chhetri20790328@gmail.com</p>
+              <p><span> place : </span> Kanchan - 04, Rudrapur, Rupandehi</p>
+            </div>
+        </div>
+        
+        <div class="resumebtn">
+            <a href="https://drive.google.com/file/d/1RUR3z1jUa3d4Vb3tWhsu3NfkPOb1g2Bc/view?usp=sharing" target="_blank" class="btn"><span>Resume</span>
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
 
-          <div id="clickMessage">
-            💬 click <strong style="text-decoration:underline; cursor:pointer;" id="helloTrigger">here</strong> to send a virtual high-five
+    </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- skills section starts -->
+<section class="skills" id="skills">
+
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Skills & <span>Abilities</span></h2>
+
+    <div class="container">
+          <div class="row" id="skillsContainer">
+
+            <!-- <div class="bar">
+              <div class="info">
+                <img src="https://img.icons8.com/color/48/000000/adobe-xd.png"/>
+                <span>AdobeXD</span>
+              </div>
+            </div> -->
+
+      </div>
+</div>
+</section>
+<!-- skills section ends -->
+
+
+<!-- education section starts -->
+<section class="education" id="education">
+
+  <h1 class="heading"><i class="fas fa-graduation-cap"></i> My <span>Education</span></h1>
+
+    <p class="qoute">Education is not the learning of facts, but the training of the mind to think.</p>
+
+    <div class="box-container">
+
+
+    <div class="box">
+      <div class="image">
+      <img draggable="false" src="./assets/images/educat/tu.jpg" alt="">
+      </div>
+      <div class="content">
+      <h3>Master in Business Studies | Marketing </h3>
+      <p>Siddhartha Campus, Kapilvastu | TU</p>
+      <h4>2021-2025 | Completed</h4>
+      </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+        <img draggable="false" src="./assets/images/educat/c.jpg" alt="">
+        </div>
+        <div class="content">
+        <h3>Bachelor in Computer Science and Engineering</h3>
+        <p>ABSS Institute of Technology, Meerut | Dr. A.P.J. Abdul Kalam Technical University</p>
+        <h4>2015-2019 | Completed</h4>
+        </div>
+    </div>
+
+    <div class="box">
+      <div class="image">
+      <img draggable="false" src="./assets/images/educat/s.jpg" alt="">
+      </div>
+      <div class="content">
+      <h3>+2 Science | Optional Math </h3>
+      <p>Oxford College, Butwal | HSEB</p>
+      <h4>2013-2015 | Completed</h4>
+      </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="image">
+        <img draggable="false" src="./assets/images/educat/b.jpg" alt="">
+        </div>
+        <div class="content">
+        <h3>10th Optional Math</h3>
+        <p>Buddha Deep English boarding school | Kanchan-05, Rudrapur, Rupandehi </p>
+        <h4>2003-2013 | Completed</h4>
+        </div>
+    </div>
+
+
+
+</div>
+</section>
+<!-- education section ends -->
+
+
+<!-- work project section starts -->
+<section class="work" id="work">
+
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Projects <span>Made</span></h2>
+
+  <div class="box-container">
+
+    <!-- <div class="box tilt">
+      <img draggable="false" src="./assets/images/projects/portfolio1.PNG" alt="" />
+      <div class="content">
+        <div class="tag">
+        <h3>Portfolio Website</h3>
+        </div>
+        <div class="desc">
+          <p>Personal portfolio website. Don't need much info about it, just scroll down. You're here only!</p>
+          <div class="btns">
+            <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <a href="https://github.com/Bikash20018/Portfolio-Website" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
           </div>
         </div>
-        <div class="hero-avatar">
-          <div class="avatar-box" aria-label="abstract avatar">🪄✨</div>
+      </div>
+    </div> -->
+
+</div>
+
+<div class="viewall">
+  <a href="/projects" class="btn"><span>View All</span>
+    <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+
+</section>
+<!-- work project section ends -->
+
+<!-- experience section starts -->
+<section class="experience" id="experience">
+
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Experience </h2>
+
+  <div class="timeline">
+
+      <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>Mapstreak Flyseas</h2>
+        </div>
+        <div class="desc">
+            <h3>Web Developer | Internship</h3>
+            <p>June 2019 - Dec 2019</p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- work / projects with richer cards -->
-    <section id="work">
-      <h2>selected projects</h2>
-      <div class="work-grid">
-        <article class="project-card">
-          <div class="project-icon">🌿</div>
-          <h3>eden</h3>
-          <div class="project-tag">UX / UI</div>
-          <p class="project-desc">Mindfulness app with adaptive color themes — used by 2k+ daily. Featured in 'minimalist choice'.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-icon">⚡</div>
-          <h3>volta</h3>
-          <div class="project-tag">DEV / API</div>
-          <p class="project-desc">Open‑source dashboard for energy monitoring. Lightweight, real‑time, MIT.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-icon">🪴</div>
-          <h3>terrascope</h3>
-          <div class="project-tag">interaction</div>
-          <p class="project-desc">Generative map explorer – finalist at 2024 creative code jam. Built with p5.js.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- skills + interactive toggles (advanced) -->
-    <section id="skills">
-      <h2>craft & tools</h2>
-      <div class="skills-container" id="skillList">
-        <span class="skill-chip">html / css</span>
-        <span class="skill-chip">javascript (es6)</span>
-        <span class="skill-chip">react</span>
-        <span class="skill-chip">figma</span>
-        <span class="skill-chip">python</span>
-        <span class="skill-chip">illustrator</span>
-        <span class="skill-chip">three.js</span>
-        <span class="skill-chip">node</span>
-        <span class="skill-chip">tailwind</span>
-      </div>
-      <p class="small-note" style="margin-top:1rem;">✦ click any chip to toggle highlight — play around</p>
-    </section>
-
-    <!-- about + fun fact (refined) -->
-    <section id="about">
-      <h2>about me</h2>
-      <div class="about-wrap">
-        <div class="about-text">
-          <p>I’m Bikash — designer & front-end enthusiast. I love muted colors, good typography, and making things that feel alive. Over the last 6 years I've worked with small teams, studios, and direct clients. </p>
-          <p>When I’m not clicking around Figma or debugging, I brew espresso, read sci‑fi, and walk my dog Olive. 🐕 Olive is basically a design critic.</p>
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>The Spark</h2>
         </div>
-        <div class="fun-fact">
-          <span>📯</span> 
-          “olive knows at least 12 tricks — but ‘fetch’ is still optional. she prefers sit & stay.”
+        <div class="desc">
+            <h3>Website Developer | Internship</h3>
+            <p>May 2019 - June 2019</p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- contact area with playful JS -->
-    <section id="contact">
-      <div class="contact-block">
-        <div class="contact-flex">
-          <h3>let's connect ✦</h3>
-          <span class="contact-email" id="emailDisplay">bikash.chhetri20790328@gmail.com</span>
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>The Sunrise Institute </h2>
         </div>
-        <div class="social-links">
-          <a href="#" class="social-link" id="ghLink">github</a>
-          <a href="#" class="social-link" id="twLink">twitter</a>
-          <a href="#" class="social-link" id="liLink">linkedin</a>
-          <a href="#" class="social-link" id="igLink">instagram</a>
+        <div class="desc">
+            <h3>Mobile Application Developer | Internship</h3>
+            <p>April 2018 - May 2018</p>
         </div>
-        <p style="margin-top: 2rem; color: #fadcd0; font-size: 1.2rem;" id="visitorMessage">⏎ click an icon or email — i’ll update this line ✨</p>
       </div>
-    </section>
+    </div>
 
-    <footer>
-      <p>© 2025 Bikash Chhetri – crafted portfolio · css/html/js · all interactions local</p>
-    </footer>
+    <div class="container left">
+      <div class="content">
+        <div class="tag">
+          <h2>Frshr Technologies</h2>
+        </div>
+        <div class="desc">
+            <h3>Wordpress Developer | Internship</h3>
+            <p>April 2017 - April 2017</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container right">
+      <div class="content">
+        <div class="tag">
+          <h2>WonderingBlog</h2>
+        </div>
+        <div class="desc">
+            <h3>Search Engine Optimization | Internship</h3>
+            <p>March 2016 - April 2016</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+          <div class="tag">
+            <h2>Hacktoberfest 2020</h2>
+          </div>
+          <div class="desc">
+              <h3>Contributor | Open Source Program</h3>
+              <p>October 2015 - November 2015</p>
+          </div>
+        </div>
+      </div>
+   
+
   </div>
 
-  <!-- enhanced vanilla JS interactions -->
-  <script>
-    (function() {
-      // 1. high‑five trigger – changes message + toggles highlight class
-      const helloTrigger = document.getElementById('helloTrigger');
-      const msgBox = document.getElementById('clickMessage');
-      if (helloTrigger) {
-        helloTrigger.addEventListener('click', function(e) {
-          e.preventDefault();
-          msgBox.innerHTML = '🙌 high‑five returned! you’re awesome (click again)';
-          msgBox.classList.add('highlight-message');
-          setTimeout(() => {
-            msgBox.classList.remove('highlight-message');
-          }, 800);
-        });
-      }
+  <div class="morebtn">
+    <a href="/experience" class="btn"><span>View All</span>
+      <i class="fas fa-arrow-right"></i>
+  </a>
+  </div>
 
-      // 2. skill chips: toggle .toggled class (cleaner)
-      const chips = document.querySelectorAll('.skill-chip');
-      chips.forEach(chip => {
-        chip.addEventListener('click', function() {
-          this.classList.toggle('toggled');
-          // optional: play with inner text? no, keep simple.
-        });
-      });
+</div>
 
-      // 3. contact section interactive elements — email + socials update visitorMessage
-      const emailSpan = document.getElementById('emailDisplay');
-      const visitorMsg = document.getElementById('visitorMessage');
-      const gh = document.getElementById('ghLink');
-      const tw = document.getElementById('twLink');
-      const li = document.getElementById('liLink');
-      const ig = document.getElementById('igLink');  // extra
+</section>
+<!-- experience section ends -->
 
-      function updateVisitor(text, emoji = '✨') {
-        if (visitorMsg) {
-          visitorMsg.innerHTML = `${emoji} ${text}  (updated)`;
-          // animate background quickly
-          visitorMsg.style.transition = '0.2s';
-          visitorMsg.style.backgroundColor = '#c45b4a';
-          visitorMsg.style.color = 'white';
-          setTimeout(() => {
-            visitorMsg.style.backgroundColor = '';
-            visitorMsg.style.color = '';
-          }, 400);
-        }
-      }
+<!-- contact section starts -->
+<section class="contact" id="contact">
+  
+  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
 
-      if (emailSpan) {
-        emailSpan.addEventListener('click', () => {
-          updateVisitor('📬 email copied to clipboard (demo)', '📧');
-          // simulate copy (clipboard API)
-          navigator.clipboard?.writeText('bikash.chhetri20790328@gmail.com').catch(() => {});
-        });
-      }
+  <div class="container">
+    <div class="content">
+      <div class="image-box">
+        <img draggable="false" src="./assets/images/contact1.png" alt="">
+      </div>
+    <form id="contact-form">
+      
+      <div class="form-group">
+        <div class="field">
+          <input type="text" name="name" placeholder="Name" required>
+          <i class='fas fa-user'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="email" placeholder="Email" required>
+          <i class='fas fa-envelope'></i>
+        </div>
+        <div class="field">
+          <input type="text" name="phone" placeholder="Phone">
+          <i class='fas fa-phone-alt'></i>
+        </div>
+        <div class="message">
+        <textarea placeholder="Message" name="message" required></textarea>
+        <i class="fas fa-comment-dots"></i>
+        </div>
+        </div>
+      <div class="button-area">
+        <button type="submit">
+          Submit <i class="fa fa-paper-plane"></i></button>
+      </div>
+    </form>
+  </div>
+  </div>
+</section>
+<!-- contact section ends -->
 
-      // social links: each shows a different message
-      if (gh) {
-        gh.addEventListener('click', (e) => {
-          e.preventDefault();
-          updateVisitor('github: @bikashcodes (demo)', '🐙');
-        });
-      }
 
-      if (tw) {
-        tw.addEventListener('click', (e) => {
-          e.preventDefault();
-          updateVisitor('twitter / x: @bikash_design', '🐦');
-        });
-      }
+<!-- footer section starts -->
+<section class="footer">
 
-      if (li) {
-        li.addEventListener('click', (e) => {
-          e.preventDefault();
-          updateVisitor('linkedin: /in/bikashchhetri', '🔗');
-        });
-      }
+  <div class="box-container">
 
-      if (ig) {
-        ig.addEventListener('click', (e) => {
-          e.preventDefault();
-          updateVisitor('instagram: @bikash.studio', '📸');
-        });
-      }
+      <div class="box">
+          <h3>Bikash's Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
+      </div>
 
-      // 4. footer year update automatically
-      const footerPara = document.querySelector('footer p');
-      if (footerPara) {
-        const currentYear = new Date().getFullYear();
-        footerPara.innerHTML = footerPara.innerHTML.replace('2025', currentYear);
-      }
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#education"><i class="fas fa-chevron-circle-right"></i> education</a>
+          <a href="#work"><i class="fas fa-chevron-circle-right"></i> work</a>
+          <a href="#experience"><i class="fas fa-chevron-circle-right"></i> experience</a>
+      </div>
 
-      // 5. extra: dynamic greeting in console + quick hover effect on projects (no extra)
-      console.log('✨ Bikash portfolio — everything is interactive, have fun!');
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-phone"></i>+977 9847088027</p>
+          <p> <i class="fas fa-envelope"></i>Bikash.chhetri20790328@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>Kanchan -4, Rudrapur, Rupandehi</p>
+          <div class="share">
 
-      // 6. optional: let the avatar wink on click?
-      const avatar = document.querySelector('.avatar-box');
-      if (avatar) {
-        avatar.addEventListener('click', () => {
-          avatar.style.transform = 'rotate(2deg) scale(0.98)';
-          avatar.innerText = '🌀';
-          setTimeout(() => {
-            avatar.style.transform = '';
-            avatar.innerText = '🪄✨';
-          }, 300);
-        });
-      }
+              <a href="https://www.linkedin.com/in/bikashchhetri2020" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              <a href="https://github.com/Bikash20018" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+              <a href="mailto:bikash.chhetri20790328@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+              <a href="https://x.com/BChhetri23304" class="fab fa-twitter" aria-label="Twitter" target="_blank"></a>
+              <a href="https://dev.to/bikash_chhetri_dff8bd4b38" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
+          </div>
+      </div>
+  </div>
 
-      // 7. on hero btn, smooth scroll — already by href, but we add a tiny ping
-      document.querySelector('.btn')?.addEventListener('click', (e) => {
-        // do nothing extra, but we can ping console
-        console.log('navigating to work section');
-      });
+  <h1 class="credit">Designed with <i class="fa fa-heart pulse"></i> by <a href="https://www.linkedin.com/in/bikashchhetri2020"> Bikash Chhetri</h1>
 
-      // 8. for any nav link, we may add active class but keep minimal
-    })();
-  </script>
+</section>
+<!-- footer section ends -->
+
+
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
+
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- particle.js links -->
+<script src="./assets/js/particles.min.js"></script>
+<script src="./assets/js/app.js"></script>
+
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- scroll reveal anim -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+<script src="./assets/js/script.js"></script>
+
 </body>
 </html>
